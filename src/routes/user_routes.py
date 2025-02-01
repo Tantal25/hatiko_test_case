@@ -19,6 +19,7 @@ def create_user(user: UserSchema) -> dict:
     session = Session()
     try:
         new_user = create_user_in_db(user, session)
+        # Обновляем  БД, для доступа к пользователю
         session.flush()
         token = create_token_in_db(new_user, session)
         session.commit()

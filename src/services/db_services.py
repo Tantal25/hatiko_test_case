@@ -9,6 +9,7 @@ def create_user_in_db(
         session: Session,
 ) -> User:
     """Функция для создания Пользователя в БД."""
+    # Если передан телеграм ID пользователя, то создаем с ним
     if user.telegram_id:
         new_user = User(username=user.username, telegram_id=user.telegram_id)
     else:

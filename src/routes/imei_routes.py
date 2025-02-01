@@ -15,12 +15,16 @@ def check_imei(request: IMEISchema) -> dict:
     требует передачи токена с запросом.
     """
 
+    # Проверяем токен на валидность
     if not is_token_valid(request.token):
         raise HTTPException(
             status_code=403,
             detail="Неверный токен авторизации"
         )
+
+    # Проверяем устройство по IMEI
     imei_info = get_imei_info(request.imei)
+    # Если IMEI неккортен, сервис вернет ошибку
     if imei_info.get('error'):
         raise HTTPException(
             status_code=400,

@@ -10,6 +10,11 @@ Linux: `source venv/bin/activate`
 - Установить зависимости
 `pip install -r requirements.txt`
 
+- Создать в корневой директории проекта файл .env
+IMEI_CHECK_BOT_TOKEN=<Токен телеграм бота>
+CHECK_IMEI_API_URL=https://api.imeicheck.net/v1/checks
+CHECK_IMEI_API_TOKEN=<Токен для внешнего API проверки IMEI>
+
 - Запуск API для проверки
     1. Зайти в корневую директорию
     2. Либо запустить файл main.py напрямую либо выполнить в терминале команду `python src/main.py`
